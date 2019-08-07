@@ -1,6 +1,8 @@
 class AtmReturn {
-    constructor(status, valor) {
+    constructor(status, value) {
         this.status = status;
-        this.valor = status;
+        this.value = value;
     }
 }
+
+module.exports = AtmReturn;
