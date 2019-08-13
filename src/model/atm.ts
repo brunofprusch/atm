@@ -1,6 +1,6 @@
 import AtmReturn from './atmReturn';
 
-const moneyBills = [100, 50, 20, 10];
+const availableMoneyBills = [100, 50, 20, 10];
 
 const withdrawal = (requiredValue: number): AtmReturn => {
     if (!isValidNumber(requiredValue)) {
@@ -13,7 +13,7 @@ const withdrawal = (requiredValue: number): AtmReturn => {
 function getMoneyBills(requiredValue: number, moneyBillReturned: number[] = []): number[]  {
 
     let response: any;
-    moneyBills.some((bill) => {
+    availableMoneyBills.some((bill) => {
         let result =  Math.trunc(requiredValue / bill);
         if (result > 0) {
             response = {moneyBill: bill, quantity: result}
