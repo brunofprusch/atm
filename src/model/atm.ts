@@ -1,18 +1,18 @@
-const AtmReturn = require('./atmReturn');
+import AtmReturn from './atmReturn';
 
 const moneyBills = [100, 50, 20, 10];
 
-const withdrawal = (requiredValue) => {
+const withdrawal = (requiredValue: number): AtmReturn => {
     if (!isValidNumber(requiredValue)) {
-        return new AtmReturn('ERROR', 0);
+        return new AtmReturn([], 'Invalid value for withdrawal');
     }
-
-    return getMoneyBills(requiredValue, []);
+    let moneyBillReturned = getMoneyBills(requiredValue);
+    return new AtmReturn(moneyBillReturned);
 }
 
-function getMoneyBills(requiredValue, moneyBillReturned) {
+function getMoneyBills(requiredValue: number, moneyBillReturned: number[] = []): number[]  {
 
-    let response;
+    let response: any;
     moneyBills.some((bill) => {
         let result =  Math.trunc(requiredValue / bill);
         if (result > 0) {
@@ -31,10 +31,8 @@ function getMoneyBills(requiredValue, moneyBillReturned) {
     return moneyBillReturned;
 }
 
-function isValidNumber(requiredValue) {
+function isValidNumber(requiredValue): boolean {
     return requiredValue % 10 === 0;
 }
 
-module.exports = {
-    withdrawal
-}
+export default withdrawal;
