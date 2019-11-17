@@ -4,14 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:dev": "nodemon src/index.ts",
+    "start:dev-debug": "node --inspect-brk -r sucrase/register src/index.ts",
     "test": "jest --watch",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint --fix src/**/*"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^24.0.17",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "jest": "^24.8.0",
-    "ts-jest": "^24.0.2"
+    "nodemon": "^1.19.4",
+    "sucrase": "^3.10.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.7.2"
   }
 }
